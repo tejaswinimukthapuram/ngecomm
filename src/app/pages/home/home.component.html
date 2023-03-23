@@ -1,0 +1,35 @@
+
+<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+
+
+
+<mat-card class="product-card" *ngFor="let product of products">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{product.title}}</mat-card-title>
+      <!-- <mat-card-subtitle>{{formatPrice(product.price)}}</mat-card-subtitle> -->
+      <mat-card-subtitle>{{product.price | formatCurrency:"$"}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="{{product.image}}" alt="Photo of a Shiba Inu"> here image tag is rendered even if the image is not fully loaded  -->
+    <img mat-card-image [src]="product.image" alt="Photo of a Shiba Inu">
+    <!-- here src is like passing input i.e like passing props in react here in above line image tag is rendered only when the image is fully loaded 
+    if we use any high resolution images the this method of approach is suggested-->
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      
+      <!-- <app-button-icon icon="favorite_border"></app-button-icon>
+      <app-button-icon [icon]="productUnSelectedIcon"></app-button-icon> -->
+      <!-- <app-button-icon icon="favorite" *ngIf="product.selected" (iconClicked)="toggleProductSelection($event, product)"></app-button-icon>
+      <app-button-icon icon="favorite_border" *ngIf="!product.selected" (iconClicked)="toggleProductSelection($event, product)"></app-button-icon> -->
+      <app-button-icon [icon]="selectionIcon(product)"  (iconClicked)="toggleProductSelection($event, product)"></app-button-icon>
+      <app-button-icon icon="edit"  (iconClicked)="onEditClicked($event, product)"></app-button-icon>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

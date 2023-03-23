@@ -1,0 +1,30 @@
+
+
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex="80">
+ <h4>Create Product</h4>
+ <form [formGroup] = "productForm" (submit)="onSubmit($event)">
+    <div>
+        <!-- <input type="text" [formControl] = "title" (keyup) = "onTitleKeyUp()" /> -->
+        <input type="text"  formControlName="title"/>
+    </div>
+    <div>
+        Entered title = {{productForm.get("title")?.value}}
+    </div>
+    <p *ngIf="productForm.get('title')?.errors?.['required']">Title is Required</p>
+    <p *ngIf="productForm.get('title')?.errors?.['minlength']">Title must be min. three characters</p>
+    <p *ngIf="productForm.get('title')?.errors?.['maxlength']">Title must not exceed 6 characters</p>
+
+
+    <div>
+       
+        <input type="text"  formControlName="price"/>
+    </div>
+    <div>
+        Entered price = {{productForm.get("price")?.value}}
+    </div>
+    <p *ngIf="productForm.get('price')?.errors?.['required']">Price is Required</p>
+    <p *ngIf="productForm.get('price')?.errors?.['pattern']">Price is invalid</p>
+    
+    <button type="submit" [disabled] = "productForm.invalid">Submit</button>
+ </form>
+</div>

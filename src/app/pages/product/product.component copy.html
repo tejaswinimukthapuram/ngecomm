@@ -1,0 +1,16 @@
+
+
+<div fxLayout="row" fxLayoutAlign="center center" fxFlex="80">
+ <h4>Create Product</h4>
+ <form>
+    <!-- <input type="text" [value]="title"/> this is one way binding that is ts to html we need to see the changes in ts when we edit in html-->
+    <input type="text" name="title" [(ngModel)]="title"/> <!-- this is two way binding -->
+    <p>Entered title={{title}}</p>
+    <!-- <p *ngIf="!title">Title is Required</p>
+    <p *ngIf="title && title.length<3">Title must be min. three characters</p>
+    <p *ngIf="title && title.length>7">Title must be less than 7 characters</p> -->
+
+    <!-- <p>{{titleErrors()}}</p> --> <!--this is javascript way the above is html way-->
+    <p>{{validTitle}}</p>
+ </form>
+</div>

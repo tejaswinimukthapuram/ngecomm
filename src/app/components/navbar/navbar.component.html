@@ -1,0 +1,27 @@
+
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+</div>
+   <div>
+    <!-- here we have created the buttons programatically on menu items to with single line of code -->
+    <button *ngFor="let item of menuItems" routerLink="{{item.link}}" routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}" mat-button class="{{item.className}}" aria-label="Example icon-button with heart icon">
+      {{item.title}}
+    </button>
+
+    <!-- here we manually coded for the buttons -->
+    <!-- <button routerLink="/" routerLinkActive="active" mat-button class="home-link" aria-label="Example icon-button with heart icon">
+        Home
+      </button>
+    <button routerLink="/product" routerLinkActive="active" mat-button class="product-link" aria-label="Example icon-button with share icon">
+    Product
+   </button>
+   <button routerLink="/login" routerLinkActive="active" mat-button class="login-link" aria-label="Example icon-button with share icon">
+    Login
+   </button> -->
+</div>
+  </mat-toolbar>
+
